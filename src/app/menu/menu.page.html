@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Menú</ion-title>
+    <ion-buttons slot="end">
+      <!-- Botón para ir al carrito -->
+      <ion-button routerLink="/carrito">
+        <ion-icon name="cart"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <!-- Itera sobre cada categoría en el objeto products -->
+    <ion-item-group *ngFor="let category of productCategories">
+      <ion-item-divider color="light">
+        <ion-label>{{ category | titlecase }}</ion-label>
+      </ion-item-divider>
+
+      <!-- Itera sobre cada producto en la categoría -->
+      <ion-item *ngFor="let product of products[category]">
+        <ion-thumbnail slot="start">
+          <img [src]="product.image" alt="{{ product.name }}">
+        </ion-thumbnail>
+        <ion-label>
+          <h2>{{ product.name }}</h2>
+          <p>${{ product.price }}</p>
+        </ion-label>
+        <ion-button fill="outline" slot="end" (click)="addToCart(product)">
+          Agregar
+        </ion-button>
+      </ion-item>
+    </ion-item-group>
+  </ion-list>
+</ion-content>

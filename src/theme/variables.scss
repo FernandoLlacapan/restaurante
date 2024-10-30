@@ -1,2 +1,14 @@
 // For information on how to create your own theme, please see:
 // http://ionicframework.com/docs/theming/
+
+
+:root {
+    --ion-color-primary: #ff7f00; // Naranjo
+    --ion-color-primary-rgb: 255, 127, 0;
+  
+    --ion-color-light: #ffffff;
+    --ion-color-light-rgb: 255, 255, 255;
+  
+    --ion-background-color: var(--ion-color-light);
+  }
+  
